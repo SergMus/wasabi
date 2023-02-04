@@ -1,0 +1,124 @@
+@import "./../../../styles/colors.scss";
+
+:host {
+  flex-grow: 1;
+}
+
+.pricing-item {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  & > label {
+    width: 100%;
+  }
+
+  .bar {
+    position: relative;
+    flex-grow: 1;
+    margin-top: 20px;
+    font-size: 16px;
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    input[type="range"].styled-slider {
+      height: 2.2em;
+      -webkit-appearance: none;
+    }
+
+    /*progress support*/
+    input[type="range"].styled-slider.slider-progress {
+      --range: calc(var(--max) - var(--min));
+      --ratio: calc((var(--value) - var(--min)) / var(--range));
+      --sx: calc(0.5 * 32px + var(--ratio) * (100% - 32px));
+    }
+
+    /*webkit*/
+    input[type="range"].styled-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background: $white;
+      border: 6px solid $blue;
+      box-shadow: -1px 2px 3px $dark-gray, -1px 0 2px $black;
+      margin-top: calc(
+        max((18px - 1px - 1px) * 0.5, 0px) - max(32px * 0.5, 6px)
+      );
+    }
+
+    input[type="range"].styled-slider.green::-webkit-slider-thumb {
+      @extend input, [type="range"], .styled-slider, ::-webkit-slider-thumb;
+
+      border: 6px solid $green;
+      box-shadow: -1px 2px 3px $dark-gray, -1px 0 2px $black;
+    }
+
+    input[type="range"].styled-slider.black::-webkit-slider-thumb {
+      @extend input, [type="range"], .styled-slider, ::-webkit-slider-thumb;
+
+      border: 6px solid $black;
+      box-shadow: 0 2px 6px $dark-gray;
+    }
+
+    input[type="range"].styled-slider::-webkit-slider-runnable-track {
+      height: 18px;
+      border-radius: 8px;
+      background: #efefef;
+      box-shadow: none;
+    }
+
+    input[type="range"].styled-slider.slider-progress::-webkit-slider-runnable-track {
+      background: linear-gradient($blue, $blue) 0 / var(--sx) 100% no-repeat,
+        #efefef;
+    }
+
+    input[type="range"].styled-slider.slider-progress.green::-webkit-slider-runnable-track {
+      background: linear-gradient($green, $green) 0 / var(--sx) 100% no-repeat,
+        #efefef;
+    }
+
+    input[type="range"].styled-slider.slider-progress.black::-webkit-slider-runnable-track {
+      background: linear-gradient($black, $black) 0 / var(--sx) 100% no-repeat,
+        #efefef;
+    }
+
+    &::before {
+      content: "0";
+      position: absolute;
+      top: 35px;
+      left: 0;
+    }
+
+    &::after {
+      content: "1000";
+      position: absolute;
+      top: 35px;
+      right: 0;
+    }
+  }
+
+  & .output-wrap {
+    position: relative;
+    width: 55px;
+    padding: 20px;
+    margin-left: 30px;
+    background: $primary-gray;
+    border: 1px solid $gray;
+    border-radius: 5px;
+
+    output {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    & > span {
+      position: absolute;
+      top: 35%;
+      right: 10px;
+      color: $dark-gray;
+    }
+  }
+}

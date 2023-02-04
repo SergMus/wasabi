@@ -1,0 +1,19 @@
+<div class="pricing-item">
+  <label for="">{{ title }}</label>
+  <div class="bar">
+    <input
+      class="styled-slider slider-progress"
+      [ngClass]="color"
+      type="range"
+      min="0"
+      max="1000"
+      value="500"
+      id="storage"
+      (input)="onInput($event)"
+    />
+  </div>
+  <div class="output-wrap">
+    <output for="storage" name="storagevalue"> {{ count }}</output>
+    <span>GB</span>
+  </div>
+</div>

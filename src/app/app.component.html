@@ -1,26 +1,7 @@
 <div class="container">
   <form class="calculator">
-    <div class="pricing-item">
-      <label for="">Percent Downloaded Per Month</label>
-    </div>
-    <div class="pricing-item">
-      <label for="">Percent Downloaded Per Month</label>
-      <div class="bar">
-        <input
-          class="styled-slider slider-progress"
-          type="range"
-          value="50"
-          min="0"
-          max="100"
-          id="range"
-          oninput="rangevalue.value=value"
-        />
-      </div>
-      <div class="output-wrap">
-        <output id="rangevalue"> 30 </output>
-        <span>%</span>
-      </div>
-    </div>
+    <app-input-slider color="black"></app-input-slider>
+    <app-input-slider color="green"></app-input-slider>
   </form>
   <div class="graphs">
     <div class="headers"></div>
