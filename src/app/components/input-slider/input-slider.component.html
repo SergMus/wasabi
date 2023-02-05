@@ -7,13 +7,14 @@
       type="range"
       min="0"
       max="1000"
-      value="500"
-      id="storage"
+      [value]="count"
+      step="10"
+      id="slider"
       (input)="onInput($event)"
     />
   </div>
   <div class="output-wrap">
-    <output for="storage" name="storagevalue"> {{ count }}</output>
+    <output for="slider" name="slidervalue"> {{ count }}</output>
     <span>GB</span>
   </div>
 </div>

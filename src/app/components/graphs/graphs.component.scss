@@ -1,0 +1,100 @@
+@import "./../../../styles/colors.scss";
+
+.graphs {
+  margin-top: 50px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.headers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: $black;
+  color: $white;
+  border-radius: 5px 5px 0 0;
+
+  & > img {
+    max-width: 25px;
+    max-height: 25px;
+    margin-right: 5px;
+  }
+}
+
+.proposition {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+
+  & > h1 {
+    color: $green;
+  }
+
+  & > h2 {
+    font-weight: 300;
+    margin-right: 20px;
+    color: $black;
+  }
+
+  & > p {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0 10px;
+  }
+}
+
+.results {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 350px;
+  background: url("./../../../assets/graph-bg.webp");
+
+  .company {
+    height: 50px;
+    width: 20%;
+    margin-bottom: 35px;
+    border-radius: 5px;
+    box-shadow: -20px 14px 0 0 rgb(0 0 0 / 10%);
+  }
+
+  #backblaze {
+    background: linear-gradient(180deg, $light-red, $red);
+  }
+
+  #bunny {
+    background: linear-gradient(180deg, $light-orange, $orange);
+  }
+
+  #scaleway {
+    background: linear-gradient(180deg, $light-purple, $purple);
+  }
+
+  #vultr {
+    background: linear-gradient(180deg, $light-blue, $blue);
+  }
+}
+
+.logos {
+  position: absolute;
+  bottom: -80px;
+  right: 11px;
+  display: flex;
+  width: 95%;
+  padding: 20px 20px;
+  background-color: $white;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px 0 rgb(0 0 0 / 10%);
+
+  .box {
+    width: 24.99%;
+    text-align: center;
+
+    & > p {
+      margin-top: 5px;
+    }
+  }
+}
