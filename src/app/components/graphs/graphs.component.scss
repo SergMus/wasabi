@@ -1,9 +1,14 @@
 @import "./../../../styles/colors.scss";
+@import "./../../../styles/mixins.scss";
 
 .graphs {
   margin-top: 50px;
   border-radius: 5px;
   position: relative;
+
+  @include for-phone-only {
+    margin-top: 5px;
+  }
 }
 
 .headers {
@@ -43,6 +48,22 @@
     letter-spacing: 1px;
     margin: 0 10px;
   }
+
+  @include for-phone-only {
+    padding: 10px 5px;
+
+    h1 {
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
 }
 
 .results {
@@ -50,51 +71,125 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-evenly;
-  height: 350px;
+  height: 383px;
   background: url("./../../../assets/graph-bg.webp");
 
   .company {
-    height: 50px;
-    width: 20%;
+    position: relative;
+    width: 9%;
+    min-width: 112px;
     margin-bottom: 35px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    background-color: $dark-gray;
     box-shadow: -20px 14px 0 0 rgb(0 0 0 / 10%);
+
+    @include for-phone-only {
+      box-shadow: none;
+      min-width: 80px;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: -48px;
+      left: 10px;
+      display: inline-block;
+      min-width: 59px;
+      padding: 9px 16px;
+      margin-bottom: 16px;
+      font-family: Montserrat, sans-serif;
+      font-size: 18px;
+      color: $white;
+      background: $black;
+      border-radius: 5px;
+      text-align: center;
+
+      @include for-phone-only {
+        min-width: 50px;
+        padding: 9px;
+        left: 5px;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: -6px;
+        left: calc(50% - 8px);
+        width: 16px;
+        height: 16px;
+        content: "";
+        background: $black;
+        transform: rotate(45deg);
+      }
+    }
   }
 
-  #backblaze {
+  .backblaze {
     background: linear-gradient(180deg, $light-red, $red);
   }
 
-  #bunny {
+  .bunny {
     background: linear-gradient(180deg, $light-orange, $orange);
   }
 
-  #scaleway {
+  .scaleway {
     background: linear-gradient(180deg, $light-purple, $purple);
   }
 
-  #vultr {
+  .vultr {
     background: linear-gradient(180deg, $light-blue, $blue);
   }
 }
 
 .logos {
   position: absolute;
-  bottom: -80px;
+  bottom: -134px;
   right: 11px;
   display: flex;
+  justify-content: space-evenly;
   width: 95%;
   padding: 20px 20px;
   background-color: $white;
   border-radius: 5px;
   box-shadow: 0 6px 12px 0 rgb(0 0 0 / 10%);
 
+  @include for-tablet-landscape-up {
+    bottom: -114px;
+  }
+
+  @include for-phone-only {
+    width: 90%;
+    right: 0;
+    justify-content: space-between;
+  }
+
   .box {
-    width: 24.99%;
+    width: 15%;
     text-align: center;
+
+    @include for-phone-only {
+      width: 23%;
+    }
 
     & > p {
       margin-top: 5px;
+    }
+
+    form {
+      margin-top: 10px;
+
+      .radio-wrap {
+        @include for-tablet-landscape-up {
+          display: inline;
+        }
+
+        @include for-phone-only {
+          text-align: start;
+          margin-left: 15px;
+        }
+      }
+
+      label {
+        font-size: 12px;
+      }
     }
   }
 }

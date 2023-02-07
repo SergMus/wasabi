@@ -44,6 +44,21 @@ export class GraphsComponent implements OnInit {
     });
   }
 
+  public changeOption(event: Event, newValue: string): void {
+    let currentVal = (event.target as HTMLInputElement).value;
+    for (const [index, value] of this.options.entries()) {
+      if (value === currentVal) {
+        this.options[index] = newValue;
+        break;
+      }
+    }
+    this.calculatorService.calculatePrice(
+      this.storage,
+      this.transfer,
+      this.options
+    );
+  }
+
   public get backblaze() {
     return this.calculatorService.backblaze.toFixed(2);
   }
@@ -58,5 +73,9 @@ export class GraphsComponent implements OnInit {
 
   public get vultr() {
     return this.calculatorService.vultr.toFixed(2);
+  }
+
+  public get minValue() {
+    return this.calculatorService.calculateLowest();
   }
 }
