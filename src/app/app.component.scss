@@ -1,15 +1,49 @@
 @import "./../styles/colors.scss";
+@import "./../styles/mixins.scss";
 
 .container {
   margin: 100px auto;
   max-width: 1240px;
   max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  @include for-desktop {
+    margin: 50px auto;
+  }
+
+  @include for-tablet-landscape-up {
+    padding: 0 15px;
+    margin: 20px auto;
+  }
+
+  @include for-phone-only {
+    padding: 0 5px 20px 5px;
+    margin: 0 auto;
+
+    & :nth-child(1) {
+      order: 2;
+    }
+
+    & :nth-child(2) {
+      order: 1;
+    }
+  }
 
   .calculator {
     display: flex;
     font-family: "Montserrat", sans-serif;
     letter-spacing: 1px;
     gap: 60px;
-  }
 
+    @include for-desktop {
+      padding-bottom: 10px;
+    }
+
+    @include for-phone-only {
+      margin-top: 165px;
+      padding: 0 15px;
+      flex-wrap: wrap;
+    }
+  }
 }

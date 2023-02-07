@@ -53,4 +53,13 @@ export class CalculatorService {
       ? (this.vultr = 5)
       : (this.vultr = storage * 0.01 + transfer * 0.01);
   }
+
+  public calculateLowest(): string {
+    return Math.min(
+      +this.backblaze,
+      +this.bunny,
+      +this.scaleway,
+      +this.vultr
+    ).toFixed(2);
+  }
 }
