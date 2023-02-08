@@ -1,0 +1,20 @@
+<div class="pricing-item">
+  <label for="">{{ title }}</label>
+  <div class="bar">
+    <input
+      class="styled-slider slider-progress"
+      [ngClass]="color"
+      type="range"
+      min="0"
+      max="1000"
+      [value]="count"
+      step="1"
+      id="slider"
+      (input)="onInput($event)"
+    />
+  </div>
+  <div class="output-wrap">
+    <output for="slider" name="slidervalue"> {{ count }}</output>
+    <span>GB</span>
+  </div>
+</div>

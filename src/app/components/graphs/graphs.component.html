@@ -1,0 +1,107 @@
+<div class="graphs">
+  <div class="headers">
+    <img class="logo" src="./../../../assets/logos/logo.webp" alt="logo" />
+    <h3>{{ title | lowercase }}</h3>
+  </div>
+  <div class="proposition">
+    <h2>Best proposition:</h2>
+    <h1>${{ minValue }}</h1>
+    <p>per year</p>
+  </div>
+  <div class="results">
+    <div
+      class="company"
+      [ngClass]="backblaze === minValue ? 'backblaze' : ''"
+      [ngStyle]="{ 'height.%': backblaze }"
+    >
+      <span class="tooltip">${{ backblaze }}</span>
+    </div>
+    <div
+      class="company"
+      [ngClass]="bunny === minValue ? 'bunny' : ''"
+      [ngStyle]="{ 'height.%': bunny }"
+    >
+      <span class="tooltip">${{ bunny }}</span>
+    </div>
+    <div
+      class="company"
+      [ngClass]="scaleway === minValue ? 'scaleway' : ''"
+      [ngStyle]="{ 'height.%': scaleway }"
+    >
+      <span class="tooltip">${{ scaleway }}</span>
+    </div>
+    <div
+      class="company"
+      [ngClass]="vultr === minValue ? 'vultr' : ''"
+      [ngStyle]="{ 'height.%': vultr }"
+    >
+      <span class="tooltip">${{ vultr }}</span>
+    </div>
+  </div>
+  <div class="logos">
+    <div class="box">
+      <img src="./../../../assets/logos/blaze.png" alt="pic1" />
+      <p>Backblaze</p>
+    </div>
+    <div class="box">
+      <img src="./../../../assets/logos/bunny.png" alt="pic2" />
+      <p>Bunny</p>
+      <form>
+        <div class="radio-wrap">
+          <input
+            type="radio"
+            #hdd
+            name="memory"
+            value="ssd"
+            (change)="changeOption($event, ssd.value)"
+            checked
+          />
+          <label for="hdd">HDD</label>
+        </div>
+
+        <div class="radio-wrap">
+          <input
+            type="radio"
+            name="memory"
+            #ssd
+            value="hdd"
+            (change)="changeOption($event, hdd.value)"
+          />
+          <label for="ssd">SSD</label>
+        </div>
+      </form>
+    </div>
+    <div class="box">
+      <img src="./../../../assets/logos/scaleway.png" alt="pic3" />
+      <p>Scaleway</p>
+      <form>
+        <div class="radio-wrap">
+          <input
+            type="radio"
+            value="single"
+            name="mode"
+            (change)="changeOption($event, single.value)"
+            #multi
+            checked
+          />
+          <label for="hdd">Multi</label>
+        </div>
+
+        <div class="radio-wrap">
+          <input
+            type="radio"
+            #single
+            name="mode"
+            value="multi"
+            (change)="changeOption($event, multi.value)"
+          />
+          <label for="ssd">Single</label>
+        </div>
+      </form>
+    </div>
+    <div class="box">
+      <img src="./../../../assets/logos/vultr.png" alt="pic4" />
+      <p>Vultr</p>
+    </div>
+  </div>
+</div>
